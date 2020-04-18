@@ -14,7 +14,6 @@
                     ￥<span>{{product.gprice}}</span>
                     <van-tag v-for="tag in product.tags" :key="tag" plain type="danger">{{tag}}</van-tag>
                 </p>
-                <van-stepper class="van-stepper_" v-model="product.cnum" :max="product.gstore"  :min="0" @change="changeHandle(product)"/>
             </template>
         </van-card>
         <slot />
@@ -23,7 +22,7 @@
 
 <script>
 export default {
-    name:'product-card',
+    name:'order-card',
     props:{
         product:Object,
         iscard: {
