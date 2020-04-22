@@ -52,28 +52,7 @@ export default {
 <style lang="less">
 .imgBox {
   width: 100%;
-  height: 220px;
+  height: 200px;
   background-size: 100% 100%;
-}
-.main-col {
-  margin: 20px;
-}
-.categoryH-div {
-  margin: 19px 0px 0;
-  h4 {
-    font-size: 14px;
-    color: #333;
-    text-align: center;
-  }
-  span {
-    font-size: 14px;
-    color: #333;
-    text-align: center;
-    display: block;
-  }
-  img {
-    width: 120px;
-    height: 120px;
-  }
 }
 </style>
