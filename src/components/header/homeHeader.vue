@@ -27,6 +27,8 @@ export default {
   display: flex;
   line-height: 0.86rem;
   background: $bgColor;
+  border-radius: 5px;
+  border: 2px solid $bgColor;
   color: #fff;
 
   .home-header-left {

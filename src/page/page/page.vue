@@ -1,29 +1,39 @@
 <template>
   <div>
     <the-swipe></the-swipe>
-    <div
+
+    <van-row
       class="categoryH-div"
       v-for="(item,index) in main_datas"
       :key="index"
     >
-      <h4>{{item.sname}}</h4>
-      <van-row gutter="20">
+      <van-row class="hidden-div">
+
+        <div class="category-name">
+          {{item.sname}}
+        </div>
+
         <div class="main_box">
           <van-col
             class="main-col"
             v-for="(g,index2) in item.goods"
             :key="index2"
           >
-            <img
-              :src="g.gpic_small"
-              @click="itemClick(g)"
-            >
-            <span>{{g.gname}}</span>
-            <span>￥{{g.gprice}}</span>
+            <div class="col-item">
+              <div align="middle">
+                <img
+                  class="col-img"
+                  :src="g.gpic_small"
+                  @click="itemClick(g)"
+                >
+              </div>
+              <span class="desc">{{g.gname}}</span>
+              <span class="price">￥{{g.gprice}}</span>
+            </div>
           </van-col>
         </div>
       </van-row>
-    </div>
+    </van-row>
   </div>
 </template>
 
@@ -58,28 +68,54 @@ export default {
 }
 </script>
 
-<style lang="less">
-.imgBox {
-  width: 100%;
-  height: 220px;
-  background-size: 100% 100%;
-}
+<style lang='stylus' scoped>
+@import '~@/assets/style/varibles.styl';
+
 .main-col {
-  margin: 20px;
+  width: 49%;
+
+  .col-item {
+    .col-img {
+      width: 85%;
+      height: auto;
+    }
+
+    .desc {
+      font-size: 15px;
+      margin-bottom: 2px;
+    }
+
+    .price {
+      color: $bgColor;
+      font-size: 18px;
+    }
+  }
 }
+
 .categoryH-div {
-  margin: 19px 0px 0;
-  h4 {
-    font-size: 14px;
-    color: #333;
+  .hidden-div {
+    margin-top: 4px;
+    margin-left: 4px;
+    margin-right: 4px;
+    border-radius: 5px;
+    border: 2px solid $bgColor;
+    background: #fff;
+  }
+
+  .category-name {
+    padding: 4px;
+    font-size: 20px;
+    background: $bgColor;
+    color: #fff;
     text-align: center;
   }
+
   span {
-    font-size: 14px;
-    color: #333;
     text-align: center;
     display: block;
+    font-family: 'STZhongsong';
   }
+
   img {
     width: 120px;
     height: 120px;
