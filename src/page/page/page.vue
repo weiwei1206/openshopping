@@ -1,22 +1,6 @@
 <template>
   <div>
-    <van-swipe
-      :autoplay="3000"
-      indicator-color="white"
-    >
-      <van-swipe-item
-        v-for="(item,index) in SwipeImg"
-        :key="index"
-      >
-        <div
-          class="imgBox"
-          :style="{backgroundImage:'url(' + item.src + ')'}"
-          @click="itemClick(item)"
-        >
-        </div>
-      </van-swipe-item>
-    </van-swipe>
-
+    <the-swipe></the-swipe>
     <div
       class="categoryH-div"
       v-for="(item,index) in main_datas"
@@ -44,22 +28,21 @@
 </template>
 
 <script>
-import { GetTopn, getSwipeImg } from "../../api/page.js";
+import { GetTopn } from "../../api/page.js";
+import theSwipe from "../../components/page/theSwipe"
 
 export default {
   name: "page",
   components: {
-
+    theSwipe
   },
   data: function () {
     return {
-      main_datas: [],
-      SwipeImg: [],
+      main_datas: []
     }
   },
   created: function () {
     this.onLoadMainDatas()
-    this.onLoadSwipeImg()
   },
   methods: {
     onLoadMainDatas() {
@@ -68,15 +51,8 @@ export default {
         this.main_datas = data
       })
     },
-    onLoadSwipeImg() {
-      getSwipeImg().then(Response => {
-        let data = Response.data.list
-        this.SwipeImg = data
-      })
-    },
     itemClick(data) {
       this.$router.push('/product/' + data.gid);
-      console.log(data);
     }
   }
 }
